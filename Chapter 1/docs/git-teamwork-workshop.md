@@ -230,11 +230,21 @@ git push origin main
 ---
 
 ## ขั้นตอนที่ 8 — รวม branch ที่สอง และจัดการ Conflict **[คนที่ 1]**
+ตรวจสอบก่อน-หลังได้แบบนี้
+ดูว่าตอนนี้เครื่องเรารู้จัก branch อะไรบ้าง (รวมทั้งฝั่ง remote):
+
+```bash
+git branch -a
+```
 
 ตอนนี้ลองรวม branch ของคนที่ 2 เข้ามา:
 
 ```bash
-git merge member-b
+# 1) ดึงข้อมูล branch ทั้งหมดจาก GitHub ลงมา
+git fetch origin
+
+# 2) merge โดยอ้างถึง branch ฝั่ง remote
+git merge origin/member-b
 ```
 
 เนื่องจากทั้งคู่แก้ไฟล์เดียวกัน Git อาจขึ้นข้อความว่า **CONFLICT (content): Merge conflict in README.md**
